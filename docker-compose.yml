@@ -12,7 +12,7 @@ services:
       - todonet
 
   starterapp:
-    image: starterapp:v1
+    image: starterapp-backend:v2
     build: 
       context: ./starterapp
     environment:
@@ -27,7 +27,9 @@ services:
       - todonet
 
   frontend:
-    build: ./frontend
+    image: starterapp-frontend:v2
+    build: 
+      context: ./frontend
     container_name: todo-frontend
     ports:
       - "3000:80"
