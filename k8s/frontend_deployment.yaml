@@ -15,14 +15,15 @@ spec:
         app: frontend
     spec:
       containers:
-      - name: frontend
-        image: cagritasci/frontend:latest
-        ports:
-        - containerPort: 80
-        resources:
-          requests:
-            memory: "128Mi"
-            cpu: "100m"
-          limits:
-            memory: "256Mi"
-            cpu: "500m"
+        - name: starterapp-frontend
+          image: starterapp-frontend:v2
+          imagePullPolicy: Never    
+          ports:
+          - containerPort: 80
+          resources:
+            requests:
+              memory: "128Mi"
+              cpu: "100m"
+            limits:
+              memory: "256Mi"
+              cpu: "500m"
