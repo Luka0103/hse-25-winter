@@ -1,4 +1,3 @@
-version: "3.8"
 services:
   postgresdb:
     image: postgres:14.19
@@ -15,7 +14,7 @@ services:
   starterapp:
     image: starterapp:v1
     build: 
-      context: .
+      context: ./starterapp
     environment:
       SPRING_DATASOURCE_URL: jdbc:postgresql://todopsql:5432/postgres
       SPRING_DATSOURCE_USERNAME: postgres
@@ -26,6 +25,12 @@ services:
       - postgresdb
     networks:
       - todonet
+
+  frontend:
+    build: ./frontend
+    container_name: todo-frontend
+    ports:
+      - "3000:80"
 
 networks:
   todonet:
